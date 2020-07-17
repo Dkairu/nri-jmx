@@ -1,0 +1,23 @@
+# Activemq Sample metrics 
+
+collect:
+  - domain: org.apache.activemq
+    event_type: ActivemqSample
+    beans:
+      - query: type=Broker,brokerName=*
+  - domain: org.apache.activemq
+    event_type: ActivemqHealthSample
+    beans:
+      - query: type=Broker,brokerName=*,service=Health
+  - domain: org.apache.activemq
+    event_type: ActivemqQueueSample
+    beans:
+      - query: type=Broker,brokerName=*,destinationType=Queue,destinationName=*
+  - domain: org.apache.activemq
+    event_type: ActivemqClientIdSample
+    beans:
+      - query: type=Broker,brokerName=*,connector=clientConnectors,connectorName=*,connectionViewType=clientId,connectionName=*
+  - domain: org.apache.activemq
+    event_type: ActivemqDestinationSample
+    beans:
+      - query: type=Broker,brokerName=*,destinationType=*,destinationName=*
